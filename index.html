@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personal Website</title>
+  <style>
+    /* RESET + BASE */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e);
+      background-size: 400% 400%;
+      animation: bgMove 15s ease infinite;
+      color: white;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* FLOATING CIRCLES */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      animation: float 12s ease-in-out infinite;
+    }
+    .bubble1 { width: 80px; height: 80px; top: 80%; left: 10%; animation-delay: 0s; }
+    .bubble2 { width: 120px; height: 120px; top: 90%; left: 35%; animation-delay: 2s; }
+    .bubble3 { width: 60px; height: 60px; top: 85%; left: 70%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-60px); }
+    }
+
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      box-shadow: 0 0 10px rgba(0,255,255,0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+      text-shadow: 0 0 5px #0ff;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 100px 20px 60px;
+      animation: slideIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      background: linear-gradient(to right, #00f0ff, #00ff87);
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #00f0ff; }
+      100% { text-shadow: 0 0 20px #00ff87; }
+    }
+
+    /* BUTTON */
+    .btn {
+      margin-top: 25px;
+      padding: 14px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background: #00ffcc;
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+      transition: transform 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* CARDS */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px 20px;
+    }
+
+    .card {
+      width: 280px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 25px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 20px rgba(0,255,255,0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s forwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.3s; }
+    .card:nth-child(2) { animation-delay: 0.6s; }
+    .card:nth-child(3) { animation-delay: 0.9s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* FOOTER */
+    footer {
+      background: black;
+      text-align: center;
+      padding: 20px;
+      color: #0ff;
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { text-shadow: 0 0 5px #0ff; }
+      to { text-shadow: 0 0 15px #0ff; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Bubbles -->
+  <div class="bubble bubble1"></div>
+  <div class="bubble bubble2"></div>
+  <div class="bubble bubble3"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div style="font-size: 22px; color: #0ff;">ULTRA</div>
+    <div>
+      <a href="#">About Me</a>
+      <a href="karakter.html">My Favorite Character</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>MY INFORMATION</h1>
+    <img src="picture.jpg" alt="My Photo" style="max-width: 375px; border-radius: 12px;">
+    <p style="font-size: 18px; max-width: 600px; margin: 20px auto;">
+      I am 13 years old, born in July 18 2011. I am a male student at Santa Laurensia and lives in Jakarta, Indonesia. My family has 4 members : Dad, Mom, Brother, and me.    </p>
+    <button class="btn"><a href="karakter.html">Explore More</a></button>
+  </section>
+
+  <!-- Cards -->
+  <section class="cards">
+    <div class="card">
+      <h3>🌀 MY HOBBIES</h3>
+      <p>I like football, math, coding, and reading.</p>
+    </div>
+    <div class="card">
+      <h3>🎴 MY MEASUREMENTS</h3>
+      <p>I weigh 68 kilograms and have a height of 175cm.</p>
+    </div>
+    <div class="card">
+      <h3>💡 MY CONTACTS</h3>
+      <p>My phone no. is 812 8118 8069 and my email is benjamin.ml@santa-laurensia.sch.id</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; Benjamin Michael Lu / 8D / 05
+  </footer>
+
+</body>
+</html>
